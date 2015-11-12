@@ -5,7 +5,7 @@
 !.gitignore
 !*/
 
-!EditorPlugin/**
+!DualitySVG/**
 
 **/bin
 **/obj

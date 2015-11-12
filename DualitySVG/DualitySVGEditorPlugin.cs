@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 using Duality.Editor;
 
@@ -12,7 +11,7 @@ namespace DualitySVG.Editor
     {
         public override string Id
         {
-            get { return "DualitySVGEditorPlugin"; }
+            get { return "DualitySVG EditorPlugin"; }
         }
     }
 }

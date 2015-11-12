@@ -95,18 +95,19 @@ namespace DualitySVG.Editor
         private PixelData LoadPixelData(string filePath)
         {
             PixelData pixelData = new PixelData();
-            byte[] imageData = File.ReadAllBytes(filePath);
-            using (Stream stream = new MemoryStream(imageData))
+            byte[] xmlBytes = File.ReadAllBytes(filePath);
+            using (Stream stream = new MemoryStream(xmlBytes))
             {
+                // Create a new XML document object.
                 XmlDocument xml = new XmlDocument();
-                xml.Load(stream);
-                SvgDocument svg = SvgDocument.Open(xml);
-                Bitmap bitmap = svg.Draw();
+                xml.Load(stream); // Load the file stream into the XML.
 
-                using (bitmap)
-                {
-                    pixelData.FromBitmap(bitmap);
-                }
+                // Create a new SVG document from the loaded XML.
+                SvgDocument svg = SvgDocument.Open(xml);
+                Bitmap bitmap = svg.Draw(); // Render the SVG document into a bitmap.
+
+                // Fill the pixel data with the rendered bitmap data.
+                using (bitmap) pixelData.FromBitmap(bitmap);
                 return pixelData;
             }
         }

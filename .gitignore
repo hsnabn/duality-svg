@@ -1,0 +1,16 @@
+# Ignore everything...
+*
+
+# Things not to ignore (and to ignore).
+!.gitignore
+!*/
+
+!EditorPlugin/**
+
+**/bin
+**/obj
+
+*.suo
+*.csproj.user
+
+**/packages.config
